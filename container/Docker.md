@@ -31,7 +31,36 @@ Upgrade your linux-header version
 sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
 ```
 
-Get gpg key
+Install Docker
 ```
-sudo sh -c "wget -q0- https://get.docker.io/gpg | apt-key add -"
+wget -qO- https://get.docker.io/ | sed -e "s/docker.com/docker.io/g" | sh
+
+__FINAL OUTPUT__
+Client:
+ Version:      1.9.1
+ API version:  1.21
+ Go version:   go1.4.2
+ Git commit:   a34a1d5
+ Built:        Fri Nov 20 13:16:54 UTC 2015
+ OS/Arch:      linux/amd64
+
+Server:
+ Version:      1.9.1
+ API version:  1.21
+ Go version:   go1.4.2
+ Git commit:   a34a1d5
+ Built:        Fri Nov 20 13:16:54 UTC 2015
+ OS/Arch:      linux/amd64
+
+If you would like to use Docker as a non-root user, you should now consider
+adding your user to the "docker" group with something like:
+
+  sudo usermod -aG docker hegdeashwin
+
+Remember that you will have to log out and back in for this to take effect!
+```
+
+Pull down Ubuntu image
+```
+sudo docker run -i -t ubuntu /bin/bash
 ```
