@@ -60,7 +60,115 @@ adding your user to the "docker" group with something like:
 Remember that you will have to log out and back in for this to take effect!
 ```
 
-Pull down Ubuntu image
+Pull down Ubuntu image / Interactive Shell
 ```
 sudo docker run -i -t ubuntu /bin/bash
+
+__OUTPUT__
+root@c295a70da8fe: <= Container instance
 ```
+
+Check if container instances running
+```
+sudo docker ps
+```
+
+Search from Docker Hub for images
+```
+sudo docker search ubuntu
+
+__OUTPUT__
+NAME                              DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+ubuntu                            Ubuntu is a Debian-based Linux operating s...   4771      [OK]       
+ubuntu-upstart                    Upstart is an event-based replacement for ...   66        [OK]      
+...
+
+```
+
+Run searched image
+```
+sudo docker run hegdeashwin/ubuntu-docker echo "hello world"
+```
+
+Docker acts as client
+```
+search
+pull
+login
+push
+```
+
+Can also search standard images
+```
+https://hub.docker.com/explore
+```
+
+Public Example Repository clone with Git
+```
+git clone https://github.com/hegdeashwin/ubuntu-docker
+```
+
+Building your image
+Go to the directory that has your Dockerfile and run the following command to build the Docker image. The -t flag lets you tag your image so it's easier to find later using the docker images command.
+```
+docker build -t hegdeashwin/ubuntu-docker .
+```
+Note: don't miss [.] dot in above command.
+
+Your image will now be listed by Docker:
+```
+docker images
+```
+
+Run the image
+Running your image with -d runs the container in detached mode, leaving the container running in the background. The -p flag redirects a public port to a private port inside the container. Run the image you previously built:
+```
+docker run -p 49160:9000 -d hegdeashwin/ubuntu-docker
+```
+
+Print the output of your app:
+```
+# Get container ID
+$ sudo docker ps
+
+# Print app output
+$ sudo docker logs <container-id>
+
+# Example
+Running on http://localhost:9000
+```
+
+Test
+To test your app, get the port of your app that Docker mapped:
+```
+sudo docker ps
+
+__OUTPUT__
+ID            IMAGE                                COMMAND    ...   PORTS
+ecce33b30ebf  hegdeashwin/ubuntu-docker:latest  npm start  ...   49160->9000
+```
+
+Docker mapped the 9000 port inside of the container to the port 49160 on your machine.
+Now you can call your app using curl (install if needed via: sudo apt-get install curl):
+```
+curl -i localhost:49160
+
+__OUTPUT__
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 12
+Date: Sun, 02 Jun 2013 03:53:22 GMT
+Connection: keep-alive
+
+Hello World! Node.js is running on Ubuntu Docker container
+```
+
+To kill any Docker instance
+```
+sudo docker kill ecc
+```
+
+
+Refs:
+https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
