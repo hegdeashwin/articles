@@ -30,9 +30,11 @@ sudo nano /etc/NetworkManager/NetworkManager.conf
 ```
 
 3. Reboot network-manager / restart your Ubuntu
+```
+reboot network-manager
+```
 
-
-Check if Node.js and npm are installed
+## Check if Node.js and npm are installed
 ```
 nodejs -v
 
@@ -45,3 +47,56 @@ __OUTPUT__
 3.5.2
 
 ```
+
+## Clone below example repository
+
+```
+git clone https://github.com/hegdeashwin/ubuntu-docker.git
+```
+
+This repository contains below things:
+* Dockerfile - Holds all configuration for Docker to create image.
+* Rest of the files like server.js, package.json, .. etc. are path of Node.js source code.
+
+## Building your image
+
+Go to cloned repository and execute
+```
+sudo docker build -t hegdeashwin/ubuntu-docker .
+```
+
+Note:
+* ```.``` [dot] at the end is required.
+
+Your image will now be listed by Docker:
+```
+sudo docker images
+```
+
+## Run the image
+
+Running your image with -d runs the container in detached mode, leaving the container running in the background. The -p flag redirects a public port to a private port inside the container. Run the image you previously built:
+```
+sudo docker run -p 49160:9000 -d hegdeashwin/ubuntu-docker
+```
+
+## Test
+
+Docker mapped the 9000 port inside of the container to the port 49160 on your machine.
+Now you can call your app using curl (install if needed via: sudo apt-get install curl):
+```
+curl -i localhost:49160
+
+__OUTPUT__
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 12
+Date: Sun, 02 Jun 2013 03:53:22 GMT
+Connection: keep-alive
+
+Hello World! Node.js is running on Ubuntu Docker container
+```
+
+## Refs:
+https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
