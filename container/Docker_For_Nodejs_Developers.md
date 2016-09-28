@@ -30,9 +30,11 @@ sudo nano /etc/NetworkManager/NetworkManager.conf
 ```
 
 3. Reboot network-manager / restart your Ubuntu
+```
+reboot network-manager
+```
 
-
-Check if Node.js and npm are installed
+## Check if Node.js and npm are installed
 ```
 nodejs -v
 
