@@ -73,6 +73,7 @@ sudo docker run -i -t ubuntu
 __OUTPUT__
 root@c295a70da8fe: <= Container instance
 ```
+Where, ```-i``` flag tells docker to redirect the output of the command to stdout and the ```-t``` flag tells it to open a tty giving us an interactive session as if we logged in or ssh'd into a machine.
 
 Check if container instances running
 ```
