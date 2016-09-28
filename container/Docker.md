@@ -19,7 +19,7 @@
 * Lots of Dockerized apps.
 * Works well with Chef, Puppet, OpenStack, AWS, Azure, Rackspace.
 
-# Commands
+# Commands [For Ubuntu]
 
 Know your Linux Kernal version
 ```
@@ -33,7 +33,11 @@ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-ra
 
 Install Docker
 ```
-wget -qO- https://get.docker.io/ | sed -e "s/docker.com/docker.io/g" | sh
+sudo wget -qO- https://get.docker.io/ | sed -e "s/docker.com/docker.io/g" | sh
+
+OR
+
+sudo apt-get install docker.io
 
 __FINAL OUTPUT__
 Client:
