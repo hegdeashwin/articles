@@ -78,6 +78,9 @@ sudo docker images
 Running your image with -d runs the container in detached mode, leaving the container running in the background. The -p flag redirects a public port to a private port inside the container. Run the image you previously built:
 ```
 sudo docker run -p 49160:9000 -d hegdeashwin/ubuntu-docker
+
+__OUTPUT__
+85e547fd9cb83701cf6b2868ff18191a68c52c21e6e1676119733085d92adb59
 ```
 
 ## Test
@@ -85,7 +88,8 @@ sudo docker run -p 49160:9000 -d hegdeashwin/ubuntu-docker
 Docker mapped the 9000 port inside of the container to the port 49160 on your machine.
 Now you can call your app using curl (install if needed via: sudo apt-get install curl):
 ```
-curl -i localhost:49160
+sudo docker logs 85e547fd9cb83701
+curl -i http://localhost:49160 or Open Browser => Hit http://localhost:49160
 
 __OUTPUT__
 HTTP/1.1 200 OK
