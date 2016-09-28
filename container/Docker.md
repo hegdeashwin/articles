@@ -66,7 +66,7 @@ Remember that you will have to log out and back in for this to take effect!
 
 Pull down Ubuntu image / Interactive Shell
 ```
-sudo docker run -i -t ubuntu /bin/bash
+sudo docker run -i -t ubuntu
 
 __OUTPUT__
 root@c295a70da8fe: <= Container instance
