@@ -22,6 +22,10 @@ This is a repository where I put my articles about code and design.
 
 - [Introduction to Kubernetes](https://github.com/hegdeashwin/articles/blob/master/container/06_Kubernetes.md)
 
+### Continuous Integration
+
+- [Introduction to Jenkins](https://github.com/hegdeashwin/articles/blob/master/ci/Jenkins.md)
+
 ### Deployment
 
 - [Introduction to Heroku for Node.js](https://github.com/hegdeashwin/articles/blob/master/deployment/Heroku.md)
