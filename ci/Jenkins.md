@@ -26,6 +26,28 @@
 * A Continuous Integration software.
 * Its Web based and Java based tool.
 
+## Prerequisites
+
+* Java 1.5 (JDK) or higher
+* Java in your environment path
+* Web server (Only if you want to host outside of Jenkins)
+
+## Install Jenkins
+
+* Download Jenkins .war file from [jenkins.io](https://jenkins.io/)
+* Extract .war file and Open terminal => go to extracted directory
+* Execute below command
+
+```
+java -jar jenkins.war
+```
+
+Jenkins will start on port 8080 by default. ```--httpPort=<port>``` will help to set different port.
+
+```
+java -jar jenkins.war --httpPort=9000
+```
+
 ## Refs
 
 * https://en.wikipedia.org/wiki/Continuous_integration
