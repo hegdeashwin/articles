@@ -25,6 +25,7 @@
 
 * A Continuous Integration software.
 * Its Web based and Java based tool.
+* Can be used as distributed build server.
 
 ## Prerequisites
 
@@ -32,7 +33,7 @@
 * Java in your environment path
 * Web server (Only if you want to host outside of Jenkins)
 
-## Install Jenkins
+## Install Jenkins on Ubuntu 16.04
 
 * Download Jenkins .war file from [jenkins.io](https://jenkins.io/)
 * Extract .war file and Open terminal => go to extracted directory
@@ -47,6 +48,32 @@ Jenkins will start on port 8080 by default. ```--httpPort=<port>``` will help to
 ```
 java -jar jenkins.war --httpPort=9000
 ```
+
+Initial admin password file called ```initialAdminPassword``` gets created under ```/home/<username>/.jenkins/secrets/```
+
+Use this password on http://localhost:8080 on browser while setting up Jenkins.
+
+## The build process
+
+1. Check in changes.
+2. Get the latest code.
+3. Build source.
+4. Build tests.
+5. Run tests.
+6. Report results.
+
+## Build triggers
+
+Build triggers is a thing inside Jenkins that will help us to configure when to trigger source build.
+
+1. After other projects
+Run your job after some project finishes.
+
+2. Periodically
+Run your job every 5 mins, or a day etc. on specific time frame.
+
+3. Poll source control
+Run your job looks in source code control for changes and if there are any changes than build trigger will get fired.
 
 ## Refs
 
