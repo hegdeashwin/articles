@@ -14,12 +14,18 @@
 
 ## What is Docker?
 * Provides standard container technology to put your application into hosted on whatever type of environment server or services that you need to hosted in.
+* An open platform for developing, shipping, and running application.
+* Open source project and written in Google's Go language.
 
 ## Advantage
 * Huge community, dev & dev-ops.
-* Open source project and written in Google's Go language.
 * Lots of Dockerized apps.
-* Works well with Chef, Puppet, OpenStack, AWS, Azure, Rackspace.
+* Works well with Chef, Puppet, OpenStack, AWS, Azure, Rackspace etc.
+* Fast (deployment, migrations, restarts)
+* Open source
+* Portability
+* Secure
+* Lightweight (Save disk & CPU)
 
 ## Commands [For Ubuntu]
 
@@ -66,14 +72,19 @@ adding your user to the "docker" group with something like:
 Remember that you will have to log out and back in for this to take effect!
 ```
 
-Pull down Ubuntu image / Interactive Shell
 ```
 sudo docker run -i -t ubuntu
-
-__OUTPUT__
-root@c295a70da8fe: <= Container instance
 ```
+
 Where, ```-i``` flag tells docker to redirect the output of the command to stdout and the ```-t``` flag tells it to open a tty giving us an interactive session as if we logged in or ssh'd into a machine.
+
+Above command does below things:
+* Pulls down Ubuntu image from the registry and Create a new container-id.
+* Allocates a filesystem and mounts a read-write layer.
+* Allocates a network/bridge interface including IP address setup.
+* Execute a process that you specify.
+* Captures and provides application output.
+
 
 Check if container instances running
 ```
@@ -133,7 +144,12 @@ CONTAINER ID        IMAGE      COMMAND       CREATED             STATUS         
 
 ```
 
-To kill any Docker instance
+To stop any Docker container instance
 ```
-sudo docker kill ecc
+sudo docker stop <container-id>
+```
+
+To kill any Docker container instance
+```
+sudo docker kill <container-id>
 ```
