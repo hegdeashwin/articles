@@ -153,3 +153,18 @@ To kill any Docker container instance
 ```
 sudo docker kill <container-id>
 ```
+
+To delete all containers
+```
+sudo docker rm $(docker ps -a -q)
+```
+
+To delete all images
+```
+sudo docker rmi $(docker images -q)
+```
+
+To delete image by id
+```
+sudo docker rmi <image-id>
+```
