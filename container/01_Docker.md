@@ -159,6 +159,11 @@ To delete all containers
 sudo docker rm $(docker ps -a -q)
 ```
 
+To delete container by container-name
+```
+sudo docker rm <container-id>
+```
+
 To delete all images
 ```
 sudo docker rmi $(docker images -q)
@@ -167,4 +172,9 @@ sudo docker rmi $(docker images -q)
 To delete image by id
 ```
 sudo docker rmi <image-id>
+```
+
+To inspect conaainer instance
+```
+sudo inspect <container-id>
 ```
