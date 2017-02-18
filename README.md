@@ -49,3 +49,17 @@ This is a repository where I put my articles about code and design.
 - [Using Passport provider - Linkedin]() (coming soon)
 
 - [Using Passport provider - Gmail]() (coming soon)
+
+- [Introduction to Single Sign On]() (coming soon)
+
+### Mobile & desktop applications
+
+- [Introduction to NativeScript]() (coming soon)
+
+- [Introduction to ReactNative]() (coming soon)
+
+- [Introduction to Electron]() (coming soon)
+
+### Security
+
+- [Enable security in Node.js]() (coming soon)
